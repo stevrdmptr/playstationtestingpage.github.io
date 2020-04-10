@@ -1,0 +1,323 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Poppins', sans-serif;
+}
+
+.header{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 12vh;
+
+	background: white;
+}
+
+.logo-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.logo-container img{
+	max-width: 50px;
+}
+
+.logo-container h4{
+	font-weight: 400;
+	font-size: 16px;
+	letter-spacing: 3px;
+
+}
+
+.nav-links{
+	display: flex;
+	justify-content: space-around;
+	width: 45%;
+}
+
+.nav-links li{
+	list-style: none;
+}
+
+.nav-links a{
+	text-decoration: none;
+	color: gray;
+	font-size: 16px;
+}
+
+.burger{
+	display: none;
+}
+
+.burger div{
+	width: 25px;
+	height: 3px;
+	margin: 5px;
+    background-color: gray;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px){
+	body{
+		overflow-x: hidden;
+	}
+
+	.header{
+		justify-content: space-between;
+	}
+
+	.nav-links{
+		position: absolute;
+		right: 0px;
+		top: 12vh;
+		height: 88vh;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		background: rgba(255,255,255,1);
+
+		width: 100%;
+
+		transform: translateX(101%);
+		transition: transform 0.3s ease-in;
+	}
+
+	.nav-links a{
+		color: gray;
+		font-size: 20px;
+		letter-spacing: 2px;
+		font-weight: 300;
+	}
+
+	.nav-links li{
+		opacity: 0;
+	}
+
+	.logo-container{
+		margin: 10px 0px 0px 20px;
+	}
+
+	.burger{
+		display: block;
+		cursor: pointer;
+
+		margin: 0px 20px 0px 0px;
+	}
+
+	.burger div{
+		margin: 5px auto;
+	}
+
+}
+
+.nav-active{
+		transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+	from{
+		opacity: 0;
+		transform: translateX(100px);
+	}
+	to{
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+.toggle .line1{
+	transform: rotate(-45deg) translate(-5px,6px);
+}
+
+.toggle .line2{
+	opacity: 0;
+}
+
+.toggle .line3{
+	transform: rotate(45deg) translate(-5px,-6px);
+}
+
+ /* // HEADER */
+
+.presentation{
+	display: flex;
+
+	width: 90%;
+	margin: auto;
+	min-height: 80vh;
+	align-items: center;
+}
+
+.introduction{
+	flex: 1;
+}
+
+.intro-text h1{
+	font-size: 44px;
+	font-weight: 500;
+
+	background: linear-gradient(to top, #00D3F8,#000090);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.intro-text p{
+	margin-top: 5px;
+	font-size: 22px;
+	color: #585772;
+}
+
+.cta{
+	padding: 50px 0 0 0;
+}
+
+.cta-select{
+	border: 2px solid #ff7400;
+	background: transparent;
+	color: #ff7400;
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.cta-add{
+	border: none;
+	background: #ff7400;
+	color: white;
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+	font-size: 16px;
+
+	margin: 30px 0 0 20px;
+}
+
+.cover{
+	flex: 1;
+	height: 60vh;
+
+	display: flex;
+	justify-content: center;
+
+	z-index: -1;
+}
+
+.cover img{
+	height: 100%;
+
+	filter: drop-shadow(-5px -5px 3px black);
+	
+	animation: drop 1s ease;
+}
+
+.background-page{
+	position: absolute;
+	top: 0px;
+	left: 5%;
+	z-index: -1;
+	opacity: 0.3;
+
+	height: 30%;
+	transform: rotate(180deg);
+}
+
+@keyframes drop{
+	0%{
+		opacity: 0;
+		transform:  translateY(-80px);
+	}
+	100%{
+		opacity: 1;
+		transform:  translateY(0px);
+	}
+}
+
+@media (max-width: 1024px){
+
+	.presentation{
+		flex-direction: column;
+	}
+
+	.introduction{
+		margin-top: 5vh;
+		text-align: center;
+	}
+
+	.intro-text h1{
+		font-size: 30px;
+	}
+
+	.intro-text p{
+		font-size: 18px;
+	}
+
+	.cta{
+		padding: 10px 0px 0px 0px;
+	}
+
+	.cover img{
+		height: 85%;
+	}
+}
+
+@media (max-width: 760px){
+	.cover img{
+		max-height: 70%;
+	}
+
+	.cta-add{
+		margin-left: 10px;
+		width: 130px;
+	    height: 40px;		
+	}
+
+	.cta-select{
+		width: 130px;
+	    height: 40px;
+	}
+}
+
+@media (max-width: 480px){
+	.cover img{
+		height: 60%;
+	}
+
+	.cta-add{
+		margin-left: 5px;
+		font-size: 14px;
+		width: 110px;
+	    height: 40px;
+	}
+
+	.cta-select{
+		font-size: 14px;
+		width: 110px;
+	    height: 40px;
+	}
+	.intro-text h1{
+		font-size: 25px;
+	}
+
+	.intro-text p{
+		font-size: 15px;
+	}
+
+@media (max-width: 380px){
+
+	.cta-add{
+		margin: 10px 0px 0px 0px;
+	}
+
+	.cover img{
+		height: 50%;
+	}
+}
